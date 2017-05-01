@@ -49,6 +49,8 @@ class Enemy:
             #restart
             self.restart()
 
+score = 0
+
 def checkHit(enemy, bullet):
     #this function determines how the enemy and bullet collide.
     #the method is to see the position of plane and bullet. Moreover, there is an interval and within
@@ -59,6 +61,8 @@ def checkHit(enemy, bullet):
         #initialize the enemy plane
         bullet.active = False
         #initialize the bullet
+        return True
+    return False
 
 pygame.init()
 #initialize pygame
@@ -114,7 +118,10 @@ while True:
     for b in bullets:
         if b.active:
             for e in enemies:
-                checkHit(e,b)
+                if checkHit(e,b):
+                    score += 100
+            b.move()
+            screen.blit(b.image, (b.x, b.y))
         #determine the collision between the bullet and the enemy plane
     for e in enemies:
         e.move()
@@ -128,5 +135,9 @@ while True:
     #get the position of the plane
     screen.blit(plane,(x,y))
     #put the plane on the screen
+    font = pygame.font.Font(None, 60)
+    text = font.render("Socre: %d" % score, 0, (255,255,0))
+    screen.blit(text, (0, 0))
+    #keep score
     pygame.display.update()
     #refresh the image
