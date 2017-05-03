@@ -70,10 +70,12 @@ screen = pygame.display.set_mode((1920, 1080), 0, 32)
 #set the background to the same size of the background picture
 pygame.display.set_caption("Attacking Jet!")
 #name of the game
-background = pygame.image.load('background2.jpg').convert()
+background = pygame.image.load('background1.jpg').convert()
 #load the background picture
-plane = pygame.image.load('main character.png').convert()
+plane = pygame.image.load('main character.png').convert_alpha()
 #load the main character-- plane
+pygame.mixer.music.load('backgroundmusic.mp3')
+pygame.mixer.music.play(loops=0, start=0.0)
 
 bullets = []
 #creates a list for the ammo
