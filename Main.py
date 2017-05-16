@@ -55,8 +55,8 @@ def checkHit(enemy, bullet):
     #this function determines how the enemy and bullet collide.
     #the method is to see the position of plane and bullet. Moreover, there is an interval and within
     #this interval, the enemy plane will disappear
-    if (bullet.x > enemy.x and bullet.x < enemy.x + enemy.image.get_width()*0.7) and (
-            bullet.y > enemy.y and bullet.y < enemy.y + enemy.image.get_height()*0.7):
+    if (bullet.x > enemy.x and bullet.x < enemy.x + enemy.image.get_width()*1.1) and (
+            bullet.y > enemy.y and bullet.y < enemy.y + enemy.image.get_height()*0.6):
         enemy.restart()
         #initialize the enemy plane
         bullet.active = False
