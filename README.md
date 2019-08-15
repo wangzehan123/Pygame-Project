@@ -1,2 +1,2 @@
-# WZH
-the first repository
+Fighter aircraft game based on Pygame platform
+
